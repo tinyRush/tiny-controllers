@@ -21,7 +21,13 @@ class UsersController extends TinyController<IUser, IUserDoc> {
 # Properties
 - [_model](#model)
 ## Model
-Use for child class to override or create new methods.
+- Create your *.d.ts in root folder and add reference to `tiny-controllers` type.
+```javascript
+// app.d.ts
+
+/// <reference types="tiny-controllers" />
+```
+- Use for child class to override or create new methods.
 ```javascript
 protected _model: Model<DocType>;
 
