@@ -3,7 +3,13 @@ Controller with base methods for your REST server. Tiny-controllers now only sup
 # Installation
 `$ npm install --save tiny-controllers`
 # Usage
-Create your own Controller then extends TinyController. 
+- Create your *.d.ts in root folder and add reference to `tiny-controllers` type.
+```javascript
+// app.d.ts
+
+/// <reference types="tiny-controllers" />
+```
+- Create your own Controller then extends TinyController. 
 ```javascript
 // IUser is model interface and
 // IUserDoc is model interface which extends Document (Mongoose)
@@ -21,13 +27,7 @@ class UsersController extends TinyController<IUser, IUserDoc> {
 # Properties
 - [_model](#model)
 ## Model
-- Create your *.d.ts in root folder and add reference to `tiny-controllers` type.
-```javascript
-// app.d.ts
-
-/// <reference types="tiny-controllers" />
-```
-- Use for child class to override or create new methods.
+Use for child class to override or create new methods.
 ```javascript
 protected _model: Model<DocType>;
 
