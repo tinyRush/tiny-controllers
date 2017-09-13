@@ -21,7 +21,7 @@ declare global {
   }
 }
 
-declare class BaseController<T, DocType extends Document> {
+declare class TinyController<T, DocType extends Document> {
   protected _model: Model<DocType>;
   constructor(model: Model<DocType>);
   doFind(req: Request, res: Response): void;
@@ -33,4 +33,4 @@ declare class BaseController<T, DocType extends Document> {
   protected sendFailure(res: Response, error: any): void;
 }
 
-export { BaseController };
+export { TinyController };
