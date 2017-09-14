@@ -11,26 +11,18 @@ declare global {
         populate?: any;
       };
     }
-    interface Router {
-      doFind(req: Request, res: Response);
-      doGet(req: Request, res: Response);
-      doPost(req: Request, res: Response);
-      doPut(req: Request, res: Response);
-      doDelete(req: Request, res: Response);
-    }
   }
 }
 
 declare class TinyController<T, DocType extends Document> {
   protected _model: Model<DocType>;
   constructor(model: Model<DocType>);
-  doFind(req: Request, res: Response): void;
-  doGet(req: Request, res: Response): void;
+  doFind(req: Request, res: Response, next: NextFunction): void;
+  doGet(req: Request, res: Response, next: NextFunction): void;
   doPost(req: Request, res: Response, next: NextFunction): void;
-  doPut(req: Request, res: Response): void;
-  doDelete(req: Request, res: Response): void;
+  doPut(req: Request, res: Response, next: NextFunction): void;
+  doDelete(req: Request, res: Response, next: NextFunction): void;
   protected sendSuccess(res: Response, data: any): void;
-  protected sendFailure(res: Response, error: any): void;
 }
 
 export { TinyController };
