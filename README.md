@@ -65,6 +65,7 @@ class UserController extends TinyController<IUser, IUserDoc> {
 - [doPut](#doput)
 - [doDelete](#dodelete)
 - [sendSuccess](#sendsuccess)
+- [sendFailure](#sendfailure)
 ## constructor
 ```javascript
 constructor(model: Model<DocType>);
@@ -92,6 +93,10 @@ doDelete(req: Request, res: Response): void;
 ## sendSuccess
 ```javascript
 protected sendSuccess(res: Response, data: any): void;
+```
+## sendFailure
+```javascript
+protected sendFailure(next: NextFunction, error: any): void;
 ```
 # License
 [MIT](https://github.com/tinyRush/tiny-controllers/blob/master/LICENSE)

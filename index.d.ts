@@ -23,6 +23,7 @@ declare class TinyController<T, DocType extends Document> {
   doPut(req: Request, res: Response, next: NextFunction): void;
   doDelete(req: Request, res: Response, next: NextFunction): void;
   protected sendSuccess(res: Response, data: any): void;
+  protected sendFailure(next: NextFunction, error: any): void;
 }
 
 export { TinyController };
