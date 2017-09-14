@@ -4,7 +4,7 @@ import { Document, Model } from 'mongoose';
 import { Request, Response, NextFunction } from 'express';
 import { TinyError } from 'tiny-errors';
 
-class TinyController<T, DocType extends Document> {
+class TinyControllers<T, DocType extends Document> {
   protected _model: Model<DocType>;
   constructor(model: Model<DocType>) {
     this._model = model;
@@ -58,4 +58,4 @@ class TinyController<T, DocType extends Document> {
   }
 }
 
-export { TinyController };
+export { TinyControllers };
