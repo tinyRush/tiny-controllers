@@ -2,7 +2,7 @@
 
 import { Document, Model } from 'mongoose';
 import { Request, Response, NextFunction } from 'express';
-import { TinyError } from 'tiny-errors';
+import { TinyErrors } from 'tiny-errors';
 
 class TinyControllers<T, DocType extends Document> {
   protected _model: Model<DocType>;
@@ -54,7 +54,7 @@ class TinyControllers<T, DocType extends Document> {
     res.status(200).send(data);
   }
   protected sendFailure(next: NextFunction, error: any) {
-    next(TinyError.parse(error));
+    next(TinyErrors.parse(error));
   }
 }
 
