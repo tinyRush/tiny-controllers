@@ -20,20 +20,20 @@ class TinyControllers<T, DocType extends Document> {
       query.select(req.find.select.join(' '));
     }
     query
-      .then(data => this.sendSuccess(res, data))
-      .catch(error => this.sendFailure(next, error));
+      .then(data => res.status(200).send(data))
+      .catch(error => next(error));
   }
   doGet(req: Request, res: Response, next: NextFunction) {
     this._model
       .findById(req.params.id)
-      .then(data => this.sendSuccess(res, data))
-      .catch(error => this.sendFailure(next, error));
+      .then(data => res.status(200).send(data))
+      .catch(error => next(error));
   }
   doPost(req: Request, res: Response, next: NextFunction) {
     this._model
       .create(req.body)
-      .then(data => this.sendSuccess(res, data))
-      .catch(error => this.sendFailure(next, error));
+      .then(data => res.status(200).send(data))
+      .catch(error => next(error));
   }
   doPut(req: Request, res: Response, next: NextFunction) {
     this._model
@@ -41,20 +41,14 @@ class TinyControllers<T, DocType extends Document> {
         new: true,
         runValidators: true
       })
-      .then(data => this.sendSuccess(res, data))
-      .catch(error => this.sendFailure(next, error));
+      .then(data => res.status(200).send(data))
+      .catch(error => next(error));
   }
   doDelete(req: Request, res: Response, next: NextFunction) {
     this._model
       .findByIdAndRemove(req.params.id)
-      .then(data => this.sendSuccess(res, data))
-      .catch(error => this.sendFailure(next, error));
-  }
-  protected sendSuccess(res: Response, data: any) {
-    res.status(200).send(data);
-  }
-  protected sendFailure(next: NextFunction, error: any) {
-    next(TinyErrors.parse(error));
+      .then(data => res.status(200).send(data))
+      .catch(error => next(error));
   }
 }
 
