@@ -22,8 +22,6 @@ declare class TinyControllers<T, DocType extends Document> {
   doPost(req: Request, res: Response, next: NextFunction): void;
   doPut(req: Request, res: Response, next: NextFunction): void;
   doDelete(req: Request, res: Response, next: NextFunction): void;
-  protected sendSuccess(res: Response, data: any): void;
-  protected sendFailure(next: NextFunction, error: any): void;
 }
 
 export { TinyControllers };
