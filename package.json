@@ -7,9 +7,7 @@
   "keywords": [],
   "author": "",
   "license": "MIT",
-  "dependencies": {
-    "tiny-errors": "^1.0.3"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@types/express": "^4.0.37",
     "@types/mongoose": "^4.7.21"

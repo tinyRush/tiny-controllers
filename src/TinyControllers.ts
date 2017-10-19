@@ -2,7 +2,6 @@
 
 import { Document, Model } from 'mongoose';
 import { Request, Response, NextFunction } from 'express';
-import { TinyErrors } from 'tiny-errors';
 
 class TinyControllers<T, DocType extends Document> {
   protected _model: Model<DocType>;
