@@ -14,9 +14,9 @@ declare global {
   }
 }
 
-declare class TinyControllers<T, DocType extends Document> {
-  protected _model: Model<DocType>;
-  constructor(model: Model<DocType>);
+declare class TinyControllers<T extends Document> {
+  protected _model: Model<T>;
+  constructor(model: Model<T>);
   doFind(req: Request, res: Response, next: NextFunction): void;
   doGet(req: Request, res: Response, next: NextFunction): void;
   doPost(req: Request, res: Response, next: NextFunction): void;

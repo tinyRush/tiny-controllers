@@ -3,9 +3,9 @@
 import { Document, Model } from 'mongoose';
 import { Request, Response, NextFunction } from 'express';
 
-class TinyControllers<T, DocType extends Document> {
-  protected _model: Model<DocType>;
-  constructor(model: Model<DocType>) {
+class TinyControllers<T extends Document> {
+  protected _model: Model<T>;
+  constructor(model: Model<T>) {
     this._model = model;
   }
   doFind(req: Request, res: Response, next: NextFunction) {
